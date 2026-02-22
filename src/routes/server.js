@@ -24,10 +24,6 @@ await connectToDb();
 app.use(cors());
 app.use(express.json());
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-
 app.use("/public", express.static(path.join(__dirname, "..", "..", "public")));
 app.post("/course", (req, res)=>  CourseController.createCourse(req,res));
 app.get("/course/:id", (req, res)=>  CourseController.getCourse(req,res));
